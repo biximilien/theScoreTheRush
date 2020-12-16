@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_044820) do
+ActiveRecord::Schema.define(version: 2020_12_15_051051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "players", force: :cascade do |t|
+    t.string "player"
+    t.string "team"
+    t.string "position", limit: 2
+    t.integer "rushing_attempts"
+    t.decimal "rushing_attempts_per_game"
+    t.integer "total_rushing_yards"
+    t.decimal "rushing_average_yards_per_attempt"
+    t.decimal "rushing_yards_per_game"
+    t.integer "touchdowns"
+    t.integer "longest_rush"
+    t.boolean "longest_rush_has_touchdown"
+    t.integer "rushing_first_downs"
+    t.decimal "rushing_first_down_percentage"
+    t.integer "rushing_twenty_or_more_yards_each"
+    t.integer "rushing_forty_or_more_yards_each"
+    t.integer "rushing_fumbles"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
