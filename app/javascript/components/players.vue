@@ -33,7 +33,7 @@
           <table class="table is-hoverable is-striped is-fullwidth">
             <thead>
               <tr>
-                <th width="25%">
+                <th width="15%">
                   <a @click="setSort('player')" :class="isActive('player')">
                     Player
                     <i class="fas fa-sort-alpha-down" v-if="sortDirection === 'ASC'"></i>
@@ -41,7 +41,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('team')" :class="isActive('team')">
                     Team
                     <i class="fas fa-sort-alpha-down" v-if="sortDirection === 'ASC'"></i>
@@ -49,7 +49,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('position')" :class="isActive('position')">
                     <abbr title="Position">Pos</abbr>
                     <i class="fas fa-sort-alpha-down" v-if="sortDirection === 'ASC'"></i>
@@ -57,7 +57,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('rushing_attempts_per_game')" :class="isActive('rushing_attempts_per_game')">
                     <abbr title="Rushing Attempts Per Game Average">Att/G</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
@@ -65,7 +65,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('rushing_attempts')" :class="isActive('rushing_attempts')">
                     <abbr title="Rushing Attempts">Att</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
@@ -73,7 +73,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('total_rushing_yards')" :class="isActive('total_rushing_yards')">
                     <abbr title="Total Rushing Yards">Yds</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
@@ -81,7 +81,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('rushing_average_yards_per_attempt')" :class="isActive('rushing_average_yards_per_attempt')">
                     <abbr title="Rushing Average Yards Per Attempt">Avg</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
@@ -89,7 +89,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('rushing_yards_per_game')" :class="isActive('rushing_yards_per_game')">
                     <abbr title="Rushing Yards Per Game">Yds/G</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
@@ -97,7 +97,7 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('touchdowns')" :class="isActive('touchdowns')">
                     <abbr title="Total Rushing Touchdowns">TD</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
@@ -105,9 +105,49 @@
                   </a>
                 </th>
 
-                <th width="8.33%">
+                <th width="6.0714%">
                   <a @click="setSort('longest_rush')" :class="isActive('longest_rush')">
                     <abbr title="Longest Rush">Lng</abbr>
+                    <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
+                    <i class="fas fa-sort-numeric-up" v-else></i>
+                  </a>
+                </th>
+
+                <th width="6.0714%">
+                  <a @click="setSort('rushing_first_downs')" :class="isActive('rushing_first_downs')">
+                    <abbr title="Rushing First Downs">1st</abbr>
+                    <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
+                    <i class="fas fa-sort-numeric-up" v-else></i>
+                  </a>
+                </th>
+
+                <th width="6.0714%">
+                  <a @click="setSort('rushing_first_down_percentage')" :class="isActive('rushing_first_down_percentage')">
+                    <abbr title="Rushing First Down Percentage">1st%</abbr>
+                    <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
+                    <i class="fas fa-sort-numeric-up" v-else></i>
+                  </a>
+                </th>
+
+                <th width="6.0714%">
+                  <a @click="setSort('rushing_twenty_or_more_yards_each')" :class="isActive('rushing_twenty_or_more_yards_each')">
+                    <abbr title="Rushing 20+ Yards Each">20+</abbr>
+                    <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
+                    <i class="fas fa-sort-numeric-up" v-else></i>
+                  </a>
+                </th>
+
+                <th width="6.0714%">
+                  <a @click="setSort('rushing_forty_or_more_yards_each')" :class="isActive('rushing_forty_or_more_yards_each')">
+                    <abbr title="Rushing 40+ Yards Each">40+</abbr>
+                    <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
+                    <i class="fas fa-sort-numeric-up" v-else></i>
+                  </a>
+                </th>
+
+                <th width="6.0714%">
+                  <a @click="setSort('rushing_fumbles')" :class="isActive('rushing_fumbles')">
+                    <abbr title="Rushing Fumbles">FUM</abbr>
                     <i class="fas fa-sort-numeric-down" v-if="sortDirection === 'ASC'"></i>
                     <i class="fas fa-sort-numeric-up" v-else></i>
                   </a>
@@ -127,6 +167,11 @@
                 <td>{{player.rushing_yards_per_game}}</td>
                 <td>{{player.touchdowns}}</td>
                 <td>{{player.longest_rush}}</td>
+                <td>{{player.rushing_first_downs}}</td>
+                <td>{{player.rushing_first_down_percentage}}</td>
+                <td>{{player.rushing_twenty_or_more_yards_each}}</td>
+                <td>{{player.rushing_forty_or_more_yards_each}}</td>
+                <td>{{player.rushing_fumbles}}</td>
               </tr>
             </tbody>
           </table>
@@ -261,9 +306,13 @@ p {
 
 th {
   background-color: Silver;
-}
 
-th > a.is-active {
-  color: NavajoWhite;
+  & > a {
+    white-space: nowrap;
+
+    &.is-active {
+      color: NavajoWhite;
+    }
+  }
 }
 </style>
