@@ -37,7 +37,7 @@ In this repo is a sample data file [`rushing.json`](/rushing.json).
     2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
     3. The user should be able to filter by the player's name
     4. The user should be able to download the sorted data as a CSV, as well as a filtered subset
-    
+
 2. The system should be able to potentially support larger sets of data on the order of 10k records.
 
 3. Update the section `Installation and running this solution` in the README file explaining how to run your code
@@ -54,4 +54,29 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+Theses instructions assume you have Ruby 2.5.7 installed, bundler and a recent version of yarn.
+
+#### 1. Clone this repo
+```sh
+$ git clone git@github.com:biximilien/theScoreTheRush.git
+```
+
+#### 2. Install Ruby dependencies
+```sh
+$ bundle install
+```
+
+#### 3. Install Javascript dependencies
+```sh
+$ yarn install --check-files
+```
+
+#### 4. Setup the database
+```sh
+bundle exec rails db:setup
+```
+
+#### 5. Start the application
+```sh
+bundle exec foreman start
+```
