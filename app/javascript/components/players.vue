@@ -209,7 +209,7 @@ export default {
       playerFilter: '',
       players: [],
       meta: null,
-      sort: '',
+      sort: 'player',
       sortDirection: 'ASC'
     }
   },

@@ -61,7 +61,11 @@ module API
         #
         # Transliterate is used to convert accented letters
         #   (double single quotes to escape for postgre)
-        I18n.transliterate(params[:filter]).gsub(/([^[A-Za-z]|[0-9]|'|-|_|\s|.])/, '').gsub("'","''")
+        if !params[:filter].blank?
+          I18n.transliterate(params[:filter]).gsub(/([^[A-Za-z]|[0-9]|'|-|_|\s|.])/, '').gsub("'","''")
+        else
+          nil
+        end
       end
 
       def sort_param
