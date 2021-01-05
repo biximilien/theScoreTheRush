@@ -9,14 +9,18 @@ class PlayersCSVSerializer
   # Generates the CSV
   def get_csv
     CSV.generate do |csv|
-      csv << ["player", "team", "position", "rushing_attempts", "rushing_attempts_per_game", "total_rushing_yards", "rushing_average_yards_per_attempt", "rushing_yards_per_game", "touchdowns", "longest_rush", "rushing_first_downs", "rushing_first_down_percentage", "rushing_twenty_or_more_yards_each", "rushing_forty_or_more_yards_each", "rushing_fumbles"]
+      # CSV column headers
+      csv << [ "Player", "Team", "POS", "Att/G", "Att", "Yds", "Avg", "Yds/G",
+               "TD", "Lng", "1st", "1st%", "20+", "40+", "FUM" ]
+
+      # values
       @players.each do |player|
         csv << [
           player.player,
           player.team,
           player.position,
-          player.rushing_attempts,
           player.rushing_attempts_per_game,
+          player.rushing_attempts,
           player.total_rushing_yards,
           player.rushing_average_yards_per_attempt,
           player.rushing_yards_per_game,
