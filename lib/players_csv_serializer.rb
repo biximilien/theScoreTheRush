@@ -23,7 +23,7 @@ class PlayersCSVSerializer
           player.touchdowns,
           (player.longest_rush_has_touchdown ? [player.longest_rush, 'T'].join : player.longest_rush),
           player.rushing_first_downs,
-          player.rushing_first_down_percentage,
+          [(player.rushing_first_down_percentage * 100), '%'].join,
           player.rushing_twenty_or_more_yards_each,
           player.rushing_forty_or_more_yards_each,
           player.rushing_fumbles

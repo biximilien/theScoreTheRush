@@ -24,7 +24,7 @@ class RushingRecordJSONDeserializer
         longest_rush: longest_rush(player['Lng']),
         longest_rush_has_touchdown: longest_rush_has_touchdown(player['Lng']),
         rushing_first_downs: player['1st'],
-        rushing_first_down_percentage: player['1st%'] / 100.0,
+        rushing_first_down_percentage: BigDecimal(player['1st%'], 5) / BigDecimal(100, 5),
         rushing_twenty_or_more_yards_each: player['20+'],
         rushing_forty_or_more_yards_each: player['40+'],
         rushing_fumbles: player['FUM']

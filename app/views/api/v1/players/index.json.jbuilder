@@ -12,7 +12,7 @@ json.players do
     json.touchdowns player.touchdowns
     json.longest_rush (player.longest_rush_has_touchdown ? [player.longest_rush, 'T'].join : player.longest_rush)
     json.rushing_first_downs player.rushing_first_downs
-    json.rushing_first_down_percentage player.rushing_first_down_percentage
+    json.rushing_first_down_percentage [(player.rushing_first_down_percentage * 100), '%'].join
     json.rushing_twenty_or_more_yards_each player.rushing_twenty_or_more_yards_each
     json.rushing_forty_or_more_yards_each player.rushing_forty_or_more_yards_each
     json.rushing_fumbles player.rushing_fumbles

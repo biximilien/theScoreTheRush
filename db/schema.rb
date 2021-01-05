@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2020_12_15_051051) do
     t.integer "longest_rush"
     t.boolean "longest_rush_has_touchdown"
     t.integer "rushing_first_downs"
-    t.decimal "rushing_first_down_percentage"
-    t.integer "rushing_twenty_or_more_yards_each"
-    t.integer "rushing_forty_or_more_yards_each"
-    t.integer "rushing_fumbles"
+    t.decimal "rushing_first_down_percentage", precision: 5, scale: 4, default: "0.0", null: false
+    t.integer "rushing_twenty_or_more_yards_each", default: 0, null: false
+    t.integer "rushing_forty_or_more_yards_each", default: 0, null: false
+    t.integer "rushing_fumbles", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player"], name: "index_players_on_player"
