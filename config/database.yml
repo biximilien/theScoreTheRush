@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: nfl_rushing_production
-  username: nfl_rushing
+  database: <%= ENV['NFL_RUSHING_DATABASE'] %>
+  username: <%= ENV['NFL_RUSHING_DATABASE_USERNAME'] %>
   password: <%= ENV['NFL_RUSHING_DATABASE_PASSWORD'] %>

@@ -72,11 +72,23 @@ $ yarn install --check-files
 ```
 
 #### 4. Setup the database
+For development, the application expects to be able to create a local socket
+connection to postgresql using your user.
 ```sh
-bundle exec rails db:setup
+$ bundle exec rails db:setup
+```
+For production, copy and update the dotenv accordingly.
+```sh
+$ cp .env.sample .env
 ```
 
 #### 5. Start the application
+For development, simply start the application.
 ```sh
-bundle exec foreman start
+$ bundle exec foreman start
+```
+For production, either use your favourite cloud or export using foreman.
+systemd is given as an example out of personnal preference.
+```sh
+# foreman export systemd /etc/systemd/system
 ```
