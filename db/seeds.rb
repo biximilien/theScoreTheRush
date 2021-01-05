@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require './lib/rushing_record_json_deserializer'
+
+rrjd = RushingRecordJSONDeserializer.new('./db/data/rushing.json')
+rrjd.import

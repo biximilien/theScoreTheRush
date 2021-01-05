@@ -16,7 +16,7 @@ class RushingRecordJSONDeserializer
         team: player['Team'],
         position: player['Pos'],
         rushing_attempts: player['Att'],
-        rushing_attempts_per_game: player['Att/G'],
+        rushing_attempts_per_game: rushing_attempts_per_game(player['Att/G']),
         total_rushing_yards: player['Yds'],
         rushing_average_yards_per_attempt: player['Avg'],
         rushing_yards_per_game: player['Yds/G'],
@@ -31,15 +31,22 @@ class RushingRecordJSONDeserializer
       }
     end
 
+    # Create records
     Player.create!(players)
   end
 
   private
 
+  #
+  def rushing_attempts_per_game(attg)
+    BigDecimal(attg, 2)
+  end
+
   def longest_rush(lng)
     lng.to_i
   end
 
+  # parses the value to find if it contains a `T` and returns true or false
   def longest_rush_has_touchdown(lng)
     return false if lng.kind_of? Numeric
     lng.include?('T')

@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2020_12_15_051051) do
   enable_extension "plpgsql"
 
   create_table "players", force: :cascade do |t|
-    t.string "player"
-    t.string "team"
-    t.string "position", limit: 2
-    t.integer "rushing_attempts"
-    t.decimal "rushing_attempts_per_game"
+    t.string "player", limit: 120, default: "", null: false
+    t.string "team", limit: 3, default: "", null: false
+    t.string "position", limit: 2, default: "", null: false
+    t.integer "rushing_attempts", default: 0, null: false
+    t.decimal "rushing_attempts_per_game", precision: 5, scale: 2, default: "0.0", null: false
     t.integer "total_rushing_yards"
     t.decimal "rushing_average_yards_per_attempt"
     t.decimal "rushing_yards_per_game"
