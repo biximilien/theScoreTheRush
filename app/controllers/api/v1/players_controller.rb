@@ -60,9 +60,8 @@ module API
         #   Numbers are allowed even though it is unlikely, they don't hurt.
         #
         # Transliterate is used to convert accented letters
-        I18n.transliterate(params[:filter])
-          .tr("^A-Za-z0-9\'-_ ",'')
-          .gsub("'","''") # double single quotes for postgre
+        #   (double single quotes to escape for postgre)
+        I18n.transliterate(params[:filter]).gsub(/([^[A-Za-z]|[0-9]|'|-|_|\s|.])/, '').gsub("'","''")
       end
 
       def sort_param

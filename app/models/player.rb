@@ -19,9 +19,10 @@ class Player < ApplicationRecord
 
   # Name
   #   Minimum 1 characters and maximum 100 characters
-  validates :name,
+  validates :player,
     presence: true,
-    length: { in: 1..100 }
+    allow_blank: false,
+    length: { in: 1..120 }
 
   # Team
   #   3 characters length
