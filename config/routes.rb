@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  get 'teams', to: 'pages#teams'
+
   # handles the API endpoints
   namespace :api, defaults: { format: 'json' } do
     # API is versioned
     namespace :v1 do
       # we only have an index action with available formats CSV and JSON
       resources :players, only: [:index], constraints: { format: /(json|csv)/ }
+      resources :teams, only: [:index], constraints: { format: /(json|csv)/ }
     end
   end
 end

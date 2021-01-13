@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <Players></Players>
+    <Players v-if="false"></Players>
+    <Teams v-else></Teams>
   </div>
 </template>
 
 <script>
 import Players from './components/players'
+import Teams from './components/teams'
 
 export default {
   components: {
-    Players
+    Players,
+    Teams
   },
 
   data: function () {

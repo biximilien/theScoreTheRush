@@ -41,4 +41,17 @@ class Player < ApplicationRecord
     presence: true,
     numericality: { greater_than_or_equal_to: 0 }
 
+
+  def self.by_teams
+    # Player.all.group('team SUM(total_rushing_yards)')
+    sql = <<-SQL
+      SELECT team,
+             SUM(total_rushing_yards) AS total_rushing_yards,
+             MAX(longest_rush) AS longest_rush
+      FROM players
+      GROUP BY team
+    SQL
+    Player.find_by_sql(sql)
+  end
+
 end
